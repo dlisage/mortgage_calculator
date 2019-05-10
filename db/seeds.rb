@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+def seed_interest_rates
+  InterestRate.create!(interest_rate: 0.025)
+end
+
+seed_interest_rates
+puts 'seeded interest_rates'

@@ -30,4 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  constants:
+    interest_rate_precision: 6
+    principal_precision: 2
+    biweeks_per_year: 26
+    weeks_per_year: 52
+    months_per_year: 12
+  errors:
+    down_payment: Invalid downpayment
+    invalid_down_payment_and_price_rate: Invalid down payment to asking price rate
+    amortization_period: Amortization period must be >= 5 and <= 25
+    payment_schedule: Payment schedule must be one of (weekly biweekly monthly)
