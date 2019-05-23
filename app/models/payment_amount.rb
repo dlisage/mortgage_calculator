@@ -2,7 +2,6 @@
 
 # PaymentAmount model
 class PaymentAmount
-  include ActiveModel::Model
   include CommonMethods
 
   attr_accessor :asking_price, :down_payment, :payment_schedule, :amortization_period

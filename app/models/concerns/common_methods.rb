@@ -3,14 +3,20 @@
 # module CommonMethods
 module CommonMethods
   extend ActiveSupport::Concern
-
+  include ActiveModel::Model
+  include ActiveModel::Validations::Callbacks
   included do
+    before_validation :downcase_payment_schedule
     validates :amortization_period, numericality: { only_integer: true }
-    validates_with PaymentScheduleValidator
+    validates :payment_schedule, inclusion: { in: %w(weekly biweekly monthly), message: I18n.t('errors.payment_schedule') }
     validates_with AmortizationPeriodValidator
   end
 
   private
+
+  def downcase_payment_schedule
+    self.payment_schedule = payment_schedule.to_s.downcase
+  end
 
   def number_of_payments
     return amortization_period.to_i*I18n.t('constants.weeks_per_year').to_i if payment_schedule == 'weekly'

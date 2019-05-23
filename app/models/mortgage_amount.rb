@@ -3,6 +3,8 @@
 # MortgageAmount model
 class MortgageAmount
   include ActiveModel::Model
+  include ActiveModel::Validations
+  include ActiveModel::Validations::Callbacks
   include CommonMethods
   attr_accessor :payment_amount, :down_payment, :payment_schedule, :amortization_period
   validates :payment_amount, :payment_schedule, :amortization_period, presence: true
